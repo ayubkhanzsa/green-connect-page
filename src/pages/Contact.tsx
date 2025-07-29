@@ -25,31 +25,29 @@ const Contact = () => {
       <main className="max-w-4xl mx-auto px-4 py-8">
         <div className="space-y-8">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold">Get in Touch</h2>
+            <h2 className="text-3xl font-bold">Contact Us</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Have questions about our WhatsApp group or need assistance? We're here to help. 
-              Reach out to us using any of the methods below.
+              If you have any questions, suggestions, or concerns, please feel free to reach out to us via the phone numbers below:
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <MessageCircle className="w-5 h-5 text-primary" />
-                  WhatsApp Support
+                  🇫🇷 France
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4">
-                  For immediate assistance, you can message us directly on WhatsApp.
+                  For support in France
                 </p>
                 <Button 
                   variant="outline" 
                   className="w-full"
-                  onClick={() => window.open("https://wa.me/message", "_blank")}
+                  onClick={() => window.open("tel:+33756757342", "_blank")}
                 >
-                  Send WhatsApp Message
+                  +33 7 56 75 73 42
                 </Button>
               </CardContent>
             </Card>
@@ -57,20 +55,39 @@ const Contact = () => {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Mail className="w-5 h-5 text-primary" />
-                  Email Support
+                  🇬🇧 United Kingdom
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground mb-4">
-                  Send us an email for detailed inquiries or support requests.
+                  For support in the UK
                 </p>
                 <Button 
                   variant="outline" 
                   className="w-full"
-                  onClick={() => window.open("mailto:support@example.com", "_blank")}
+                  onClick={() => window.open("tel:+447476966269", "_blank")}
                 >
-                  Send Email
+                  +44 7476 966269
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  🇵🇰 Pakistan
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground mb-4">
+                  For support in Pakistan
+                </p>
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  onClick={() => window.open("tel:+923101040700", "_blank")}
+                >
+                  +92 310 1040700
                 </Button>
               </CardContent>
             </Card>
@@ -79,61 +96,14 @@ const Contact = () => {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Clock className="w-5 h-5 text-primary" />
-                Response Times
+                <MessageCircle className="w-5 h-5 text-primary" />
+                WhatsApp Group Support
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  <span className="font-medium">WhatsApp Messages</span>
-                  <span className="text-muted-foreground">Within 2-4 hours</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="font-medium">Email Inquiries</span>
-                  <span className="text-muted-foreground">Within 24 hours</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="font-medium">Business Hours</span>
-                  <span className="text-muted-foreground">Monday - Friday, 9 AM - 6 PM</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Frequently Asked Questions</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div>
-                <h4 className="font-semibold mb-2">How do I join the WhatsApp group?</h4>
-                <p className="text-muted-foreground">
-                  Simply click the "Join WhatsApp Group" button on our main page, and you'll be 
-                  redirected to WhatsApp where you can join the group.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">Can I leave the group anytime?</h4>
-                <p className="text-muted-foreground">
-                  Yes, you can leave the group at any time through WhatsApp's group settings. 
-                  There are no penalties or charges for leaving.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">What type of content is shared?</h4>
-                <p className="text-muted-foreground">
-                  We share news, offers, insights, and relevant information that our community 
-                  finds valuable. All content is carefully curated and relevant.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2">How often are messages sent?</h4>
-                <p className="text-muted-foreground">
-                  We respect your time and don't spam. Messages are sent only when we have 
-                  valuable, relevant information to share with the community.
-                </p>
-              </div>
+              <p className="text-muted-foreground">
+                You may also reach us through our WhatsApp group link for faster support.
+              </p>
             </CardContent>
           </Card>
         </div>
