@@ -3,7 +3,7 @@ import { MessageCircle } from "lucide-react";
 
 const Index = () => {
   const handleJoinGroup = () => {
-    window.open("https://chat.whatsapp.com/BOlS66J2Wkz2Qs3vlnaOPh?mode=ac_t", "_blank");
+    window.open("https://chat.whatsapp.com/BkbSqbYehbJ7LeHsze7Y0o?mode=ac_t", "_blank");
   };
 
   return (
@@ -37,7 +37,10 @@ const Index = () => {
               variant="whatsapp"
               size="lg"
               onClick={handleJoinGroup}
-              className="px-8 py-6 text-lg md:text-xl rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 border-0 font-semibold"
+              className="px-8 py-6 text-lg md:text-xl rounded-full transform hover:scale-105 transition-all duration-300 ease-in-out bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 border-0 font-semibold animate-[float_3s_ease-in-out_infinite]"
+              style={{
+                boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)'
+              }}
             >
               <MessageCircle className="w-5 h-5 mr-2 animate-pulse" />
               Join WhatsApp Group
