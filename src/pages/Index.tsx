@@ -54,25 +54,25 @@ const Index = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-sm text-muted-foreground">
             <a
-              href="/terms"
+              href="terms.html"
               className="hover:text-foreground transition-colors"
             >
               Terms & Conditions
             </a>
             <a
-              href="/privacy"
+              href="privacy.html"
               className="hover:text-foreground transition-colors"
             >
               Privacy Policy
             </a>
             <a
-              href="/returns"
+              href="returns.html"
               className="hover:text-foreground transition-colors"
             >
               Return & Refund Policy
             </a>
             <a
-              href="/contact"
+              href="contact.html"
               className="hover:text-foreground transition-colors"
             >
               Contact Us
