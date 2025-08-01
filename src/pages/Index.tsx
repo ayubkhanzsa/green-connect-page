@@ -1,10 +1,75 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle, CheckCircle } from "lucide-react";
+import { MessageCircle, CheckCircle, Lock, Eye, EyeOff } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
+  const { toast } = useToast();
+  
+  // Admin states
+  const [showPasswordDialog, setShowPasswordDialog] = useState(false);
+  const [showAdminPanel, setShowAdminPanel] = useState(false);
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [whatsappLink, setWhatsappLink] = useState("");
+  const [newWhatsappLink, setNewWhatsappLink] = useState("");
+
+  // Load WhatsApp link from localStorage on component mount
+  useEffect(() => {
+    const savedLink = localStorage.getItem("whatsapp_group_link");
+    if (savedLink) {
+      setWhatsappLink(savedLink);
+      setNewWhatsappLink(savedLink);
+    } else {
+      const defaultLink = "https://chat.whatsapp.com/BkbSqbYehbJ7LeHsze7Y0o?mode=ac_t";
+      setWhatsappLink(defaultLink);
+      setNewWhatsappLink(defaultLink);
+    }
+  }, []);
+
   const handleJoinGroup = () => {
-    window.open("https://chat.whatsapp.com/BkbSqbYehbJ7LeHsze7Y0o?mode=ac_t", "_blank");
+    window.open(whatsappLink, "_blank");
+  };
+
+  // Admin functions
+  const handleAdminClick = () => {
+    setShowPasswordDialog(true);
+  };
+
+  const handlePasswordSubmit = (e) => {
+    e.preventDefault();
+    if (password === "3359") {
+      setShowPasswordDialog(false);
+      setShowAdminPanel(true);
+      setPassword("");
+      toast({
+        title: "Success",
+        description: "Welcome to Admin Panel",
+      });
+    } else {
+      toast({
+        title: "Error",
+        description: "Wrong password",
+        variant: "destructive",
+      });
+      setPassword("");
+    }
+  };
+
+  const handleSaveWhatsappLink = (e) => {
+    e.preventDefault();
+    if (newWhatsappLink.trim()) {
+      localStorage.setItem("whatsapp_group_link", newWhatsappLink.trim());
+      setWhatsappLink(newWhatsappLink.trim());
+      toast({
+        title: "Success",
+        description: "WhatsApp group link updated successfully ✅",
+      });
+    }
+  };
+
+  const closeAdminPanel = () => {
+    setShowAdminPanel(false);
   };
 
   // Reviews data
@@ -108,8 +173,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col relative">
-      {/* Header with Verified Brand Badge */}
-      <header className="absolute top-4 left-4 z-10">
+      {/* Header with Verified Brand Badge and Admin Button */}
+      <header className="absolute top-4 left-4 right-4 z-10 flex justify-between items-center">
         <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.5)]">
           <span className="text-xl font-bold text-foreground">Enzo</span>
           <img 
@@ -118,7 +183,112 @@ const Index = () => {
             className="w-5 h-5"
           />
         </div>
+        
+        {/* Admin Button */}
+        <Button
+          onClick={handleAdminClick}
+          variant="outline"
+          size="sm"
+          className="bg-white/90 backdrop-blur-sm shadow-[0_8px_30px_rgb(0,0,0,0.5)] hover:bg-white/95"
+        >
+          <Lock className="w-4 h-4 mr-1" />
+          Admin
+        </Button>
       </header>
+
+      {/* Password Dialog */}
+      {showPasswordDialog && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 w-96 mx-4">
+            <h2 className="text-xl font-bold mb-4 text-center">Admin Access</h2>
+            <form onSubmit={handlePasswordSubmit}>
+              <div className="mb-4">
+                <label className="block text-sm font-medium mb-2">Password</label>
+                <div className="relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 pr-10"
+                    placeholder="Enter admin password"
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-2.5 text-gray-500 hover:text-gray-700"
+                  >
+                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
+                </div>
+              </div>
+              <div className="flex gap-2">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => {
+                    setShowPasswordDialog(false);
+                    setPassword("");
+                  }}
+                  className="flex-1"
+                >
+                  Cancel
+                </Button>
+                <Button type="submit" className="flex-1">
+                  Access
+                </Button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Admin Panel */}
+      {showAdminPanel && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 w-96 mx-4 max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-bold">Admin Panel</h2>
+              <Button
+                onClick={closeAdminPanel}
+                variant="outline"
+                size="sm"
+              >
+                ×
+              </Button>
+            </div>
+            
+            <form onSubmit={handleSaveWhatsappLink}>
+              <div className="mb-4">
+                <label className="block text-sm font-medium mb-2">Set WhatsApp Group Link</label>
+                <input
+                  type="url"
+                  value={newWhatsappLink}
+                  onChange={(e) => setNewWhatsappLink(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  placeholder="https://chat.whatsapp.com/..."
+                  required
+                />
+                <p className="text-xs text-gray-500 mt-1">Current active link will be updated</p>
+              </div>
+              
+              <div className="mb-4">
+                <label className="block text-sm font-medium mb-2">Current Link Preview</label>
+                <div className="p-3 bg-gray-50 rounded-lg border">
+                  <p className="text-xs text-gray-600 break-all">{whatsappLink}</p>
+                </div>
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-green-500 hover:bg-green-600 text-white"
+              >
+                Save WhatsApp Link
+              </Button>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* Live Reviews Sidebar */}
       <div className="fixed right-4 top-20 bottom-20 w-80 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 p-4 z-10 overflow-hidden hidden lg:block">
