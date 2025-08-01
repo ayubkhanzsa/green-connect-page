@@ -9,56 +9,56 @@ const Index = () => {
 
   // Reviews data
   const reviews = [
-    { name: "Ali Raza", text: "Thanks Enzo! Received my UC in 2 mins! Trusted service 💯" },
-    { name: "Usman Khan", text: "Car mila just after payment, fast delivery bro 🔥" },
-    { name: "Ayesha Malik", text: "Smooth process, highly recommend Enzo!" },
-    { name: "Danish Mughal", text: "Amazing service, got my UC instantly!" },
-    { name: "Hina Shahid", text: "Fast and reliable, thank you Enzo 🙏" },
-    { name: "Bilal Aslam", text: "Trusted again, got my car fast!" },
-    { name: "Sana Rauf", text: "Wasn't expecting this fast delivery, amazing!" },
-    { name: "Hamza Tariq", text: "Best service for UC, highly recommended!" },
-    { name: "Maham Khan", text: "Super quick delivery, very satisfied 👍" },
-    { name: "Saad Ahmed", text: "Enzo delivers as promised, excellent!" },
-    { name: "Zoya Akbar", text: "Got my car skin immediately, love it!" },
-    { name: "Zain Malik", text: "Professional service, will use again!" },
-    { name: "Nimra Iftikhar", text: "Fast UC delivery, totally worth it!" },
-    { name: "Hassan Javed", text: "Smooth transaction, very impressed!" },
-    { name: "Saba Qureshi", text: "Quick and easy process, thank you!" },
-    { name: "Waleed Shah", text: "Got my UC within minutes, amazing!" },
-    { name: "Iqra Javed", text: "Reliable service, highly recommend!" },
-    { name: "Fahad Rehman", text: "Fast delivery as always, great work!" },
-    { name: "Mehwish Farooq", text: "Trusted service, got my car fast!" },
-    { name: "Adeel Noman", text: "Excellent service, very professional!" },
-    { name: "Kiran Bashir", text: "Quick UC delivery, very satisfied!" },
-    { name: "Shahzaib Akhtar", text: "Trusted again, got my car fast!" },
-    { name: "Anum Tariq", text: "Amazing speed, highly recommend!" },
-    { name: "Haris Anwar", text: "Best UC service, super fast!" },
-    { name: "Fatima Noor", text: "Quick and reliable, thank you Enzo!" },
-    { name: "Taimoor Abbasi", text: "Got my car immediately, excellent!" },
-    { name: "Laiba Hassan", text: "Fast delivery, very professional service!" },
-    { name: "Imran Qureshi", text: "Smooth process, highly satisfied!" },
-    { name: "Rabia Imran", text: "Quick UC delivery, amazing service!" },
-    { name: "Noman Sheikh", text: "Reliable and fast, will use again!" },
-    { name: "Komal Rehman", text: "Got my car skin quickly, love it!" },
-    { name: "Adnan Siddiqui", text: "Professional service, highly recommend!" },
-    { name: "Jawad Mirza", text: "Fast UC delivery, very impressed!" },
-    { name: "Omer Farooq", text: "Quick and easy, excellent service!" },
-    { name: "Hammad Ali", text: "Trusted service, got my car fast!" },
-    { name: "Asad Bhatti", text: "Amazing delivery speed, thank you!" },
-    { name: "Kamran Bashir", text: "Reliable UC service, highly recommend!" },
-    { name: "Yousaf Raza", text: "Fast and professional, very satisfied!" },
-    { name: "Rayan Khalid", text: "Quick delivery, excellent work!" },
-    { name: "Umar Saeed", text: "Got my UC instantly, amazing!" },
-    { name: "Shayan Haider", text: "Smooth transaction, will use again!" },
-    { name: "Zeeshan Tariq", text: "Fast car delivery, highly recommend!" },
-    { name: "Atif Iqbal", text: "Professional service, very impressed!" },
-    { name: "Nabeel Shah", text: "Quick UC delivery, excellent!" },
-    { name: "Ahsan Saleem", text: "Reliable and fast, thank you Enzo!" },
-    { name: "Salman Gul", text: "Got my car quickly, amazing service!" },
-    { name: "Hashir Nawaz", text: "Fast delivery, highly satisfied!" },
-    { name: "Junaid Mehmood", text: "Smooth process, excellent work!" },
-    { name: "Fawad Chaudhry", text: "Quick and reliable, highly recommend!" },
-    { name: "Taha Aziz", text: "Fast UC delivery, very professional!" }
+    { name: "Ali Raza", text: "Thanks Enzo! Received my UC in 2 mins! Trusted service 💯", rating: 5 },
+    { name: "Usman Khan", text: "Car mila just after payment, fast delivery bro 🔥", rating: 5 },
+    { name: "Ayesha Malik", text: "Smooth process, highly recommend Enzo!", rating: 5 },
+    { name: "Danish Mughal", text: "Amazing service, got my UC instantly!", rating: 5 },
+    { name: "Hina Shahid", text: "Fast and reliable, thank you Enzo 🙏", rating: 5 },
+    { name: "Bilal Aslam", text: "Trusted again, got my car fast!", rating: 5 },
+    { name: "Sana Rauf", text: "Wasn't expecting this fast delivery, amazing!", rating: 5 },
+    { name: "Hamza Tariq", text: "Best service for UC, highly recommended!", rating: 5 },
+    { name: "Maham Khan", text: "Super quick delivery, very satisfied 👍", rating: 5 },
+    { name: "Saad Ahmed", text: "Enzo delivers as promised, excellent!", rating: 5 },
+    { name: "Zoya Akbar", text: "Got my car skin immediately, love it!", rating: 5 },
+    { name: "Zain Malik", text: "Professional service, will use again!", rating: 5 },
+    { name: "Nimra Iftikhar", text: "Fast UC delivery, totally worth it!", rating: 5 },
+    { name: "Hassan Javed", text: "Smooth transaction, very impressed!", rating: 5 },
+    { name: "Saba Qureshi", text: "Quick and easy process, thank you!", rating: 5 },
+    { name: "Waleed Shah", text: "Got my UC within minutes, amazing!", rating: 5 },
+    { name: "Iqra Javed", text: "Reliable service, highly recommend!", rating: 5 },
+    { name: "Fahad Rehman", text: "Fast delivery as always, great work!", rating: 5 },
+    { name: "Mehwish Farooq", text: "Trusted service, got my car fast!", rating: 5 },
+    { name: "Adeel Noman", text: "Excellent service, very professional!", rating: 5 },
+    { name: "Kiran Bashir", text: "Quick UC delivery, very satisfied!", rating: 5 },
+    { name: "Shahzaib Akhtar", text: "Trusted again, got my car fast!", rating: 5 },
+    { name: "Anum Tariq", text: "Amazing speed, highly recommend!", rating: 5 },
+    { name: "Haris Anwar", text: "Best UC service, super fast!", rating: 5 },
+    { name: "Fatima Noor", text: "Quick and reliable, thank you Enzo!", rating: 5 },
+    { name: "Taimoor Abbasi", text: "Got my car immediately, excellent!", rating: 5 },
+    { name: "Laiba Hassan", text: "Fast delivery, very professional service!", rating: 5 },
+    { name: "Imran Qureshi", text: "Smooth process, highly satisfied!", rating: 5 },
+    { name: "Rabia Imran", text: "Quick UC delivery, amazing service!", rating: 5 },
+    { name: "Noman Sheikh", text: "Reliable and fast, will use again!", rating: 5 },
+    { name: "Komal Rehman", text: "Got my car skin quickly, love it!", rating: 5 },
+    { name: "Adnan Siddiqui", text: "Professional service, highly recommend!", rating: 5 },
+    { name: "Jawad Mirza", text: "Fast UC delivery, very impressed!", rating: 5 },
+    { name: "Omer Farooq", text: "Quick and easy, excellent service!", rating: 5 },
+    { name: "Hammad Ali", text: "Trusted service, got my car fast!", rating: 5 },
+    { name: "Asad Bhatti", text: "Amazing delivery speed, thank you!", rating: 5 },
+    { name: "Kamran Bashir", text: "Reliable UC service, highly recommend!", rating: 5 },
+    { name: "Yousaf Raza", text: "Fast and professional, very satisfied!", rating: 5 },
+    { name: "Rayan Khalid", text: "Quick delivery, excellent work!", rating: 5 },
+    { name: "Umar Saeed", text: "Got my UC instantly, amazing!", rating: 5 },
+    { name: "Shayan Haider", text: "Smooth transaction, will use again!", rating: 5 },
+    { name: "Zeeshan Tariq", text: "Fast car delivery, highly recommend!", rating: 5 },
+    { name: "Atif Iqbal", text: "Professional service, very impressed!", rating: 5 },
+    { name: "Nabeel Shah", text: "Quick UC delivery, excellent!", rating: 5 },
+    { name: "Ahsan Saleem", text: "Reliable and fast, thank you Enzo!", rating: 5 },
+    { name: "Salman Gul", text: "Got my car quickly, amazing service!", rating: 5 },
+    { name: "Hashir Nawaz", text: "Fast delivery, highly satisfied!", rating: 5 },
+    { name: "Junaid Mehmood", text: "Smooth process, excellent work!", rating: 5 },
+    { name: "Fawad Chaudhry", text: "Quick and reliable, highly recommend!", rating: 5 },
+    { name: "Taha Aziz", text: "Fast UC delivery, very professional!", rating: 5 }
   ];
 
   const [displayedReviews, setDisplayedReviews] = useState(reviews.slice(0, 8));
@@ -75,17 +75,20 @@ const Index = () => {
   // Handle review submission
   const handleReviewSubmit = (e) => {
     e.preventDefault();
-    if (newReview.name.trim() && newReview.text.trim()) {
+    if (newReview.name.trim() && newReview.text.trim() && newReview.rating > 0) {
       if (filterContent(newReview.text) || filterContent(newReview.name)) {
         alert("Review contains inappropriate content and cannot be posted.");
         return;
       }
       const reviewToAdd = { 
         name: newReview.name.trim(), 
-        text: newReview.text.trim() 
+        text: newReview.text.trim(),
+        rating: newReview.rating
       };
       setAllReviews(prev => [reviewToAdd, ...prev]);
       setNewReview({ name: "", text: "", rating: 5 });
+    } else {
+      alert("Please fill all fields including star rating.");
     }
   };
 
@@ -182,14 +185,19 @@ const Index = () => {
           <div className="mt-12 max-w-lg mx-auto">
             <h3 className="text-lg font-semibold text-foreground mb-6 text-center">Live Customer Reviews</h3>
             <div className="rounded-2xl p-4 h-80 overflow-hidden">
-              <div className="space-y-3 animate-[scroll-up_120s_linear_infinite]">
+              <div className="space-y-3 animate-[scroll-up_200s_linear_infinite]">
                 {[...allReviews, ...allReviews].map((review, index) => (
                   <div 
                     key={`inline-${review.name}-${index}`}
                     className="bg-gradient-to-r from-green-50 to-green-100 p-3 rounded-lg border border-green-200"
                   >
                     <div className="flex text-yellow-400 mb-1 text-sm">
-                      ⭐⭐⭐⭐✨
+                      {review.rating ? 
+                        Array.from({ length: 5 }, (_, i) => (
+                          <span key={i}>{i < review.rating ? "⭐" : "☆"}</span>
+                        )) : 
+                        "⭐⭐⭐⭐✨"
+                      }
                     </div>
                     <p className="text-sm text-gray-700 mb-2">{review.text}</p>
                     <p className="text-xs font-medium text-gray-600">— {review.name}</p>
