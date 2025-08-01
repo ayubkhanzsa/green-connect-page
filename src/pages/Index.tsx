@@ -84,7 +84,11 @@ const Index = () => {
       <header className="absolute top-4 left-4 z-10">
         <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
           <span className="text-xl font-bold text-foreground">Enzo</span>
-          <CheckCircle className="w-5 h-5 text-blue-500" fill="currentColor" />
+          <img 
+            src="/lovable-uploads/e6c23de5-527b-44f7-8742-0dcb1306da29.png" 
+            alt="Verified badge" 
+            className="w-5 h-5"
+          />
         </div>
       </header>
 
