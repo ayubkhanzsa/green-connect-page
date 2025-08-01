@@ -231,7 +231,13 @@ const Index = () => {
                       onClick={() => setNewReview(prev => ({ ...prev, rating: star }))}
                       className="text-3xl focus:outline-none transition-all duration-200 hover:scale-110 cursor-pointer"
                     >
-                      <span className={star <= newReview.rating ? "text-yellow-400" : "text-gray-300"}>
+                      <span 
+                        className={`${star <= newReview.rating ? "text-yellow-400" : "text-gray-400"} transition-colors duration-200`}
+                        style={{ 
+                          filter: star <= newReview.rating ? 'brightness(1.2) saturate(1.5)' : 'brightness(0.7)',
+                          textShadow: star <= newReview.rating ? '0 0 8px rgba(255, 193, 7, 0.8)' : 'none'
+                        }}
+                      >
                         ⭐
                       </span>
                     </button>
