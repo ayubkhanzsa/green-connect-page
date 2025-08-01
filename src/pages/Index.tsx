@@ -152,6 +152,27 @@ const Index = () => {
               By clicking, you agree to receive messages via WhatsApp. You can leave the group anytime.
             </p>
           </div>
+
+          {/* Live Reviews Section */}
+          <div className="mt-12 max-w-lg mx-auto">
+            <h3 className="text-lg font-semibold text-foreground mb-6 text-center">Live Customer Reviews</h3>
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-4 h-80 overflow-hidden">
+              <div className="space-y-3 animate-[scroll-up_20s_linear_infinite]">
+                {[...reviews, ...reviews].map((review, index) => (
+                  <div 
+                    key={`inline-${review.name}-${index}`}
+                    className="bg-gradient-to-r from-green-50 to-green-100 p-3 rounded-lg border border-green-200"
+                  >
+                    <div className="flex text-yellow-400 mb-1 text-sm">
+                      ⭐⭐⭐⭐✨
+                    </div>
+                    <p className="text-sm text-gray-700 mb-2">"{review.text}"</p>
+                    <p className="text-xs font-medium text-gray-600">— {review.name}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 
