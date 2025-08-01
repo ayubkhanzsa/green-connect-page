@@ -353,6 +353,14 @@ const Index = () => {
 
           {/* Live Reviews Section */}
           <div className="mt-12 max-w-lg mx-auto">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                5K+ Satisfied Customers
+              </h2>
+              <p className="text-lg text-green-600 font-semibold">
+                Delivered Successfully
+              </p>
+            </div>
             <h3 className="text-lg font-semibold text-foreground mb-6 text-center">Live Customer Reviews</h3>
             <div className="rounded-2xl p-4 h-80 overflow-hidden">
               <div className="space-y-3 animate-[scroll-up_200s_linear_infinite]">
