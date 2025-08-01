@@ -64,7 +64,7 @@ const Index = () => {
   const [displayedReviews, setDisplayedReviews] = useState(reviews.slice(0, 8));
   const [currentIndex, setCurrentIndex] = useState(8);
   const [allReviews, setAllReviews] = useState(reviews);
-  const [newReview, setNewReview] = useState({ name: "", text: "" });
+  const [newReview, setNewReview] = useState({ name: "", text: "", rating: 5 });
 
   // Content filter function
   const filterContent = (text) => {
@@ -85,7 +85,7 @@ const Index = () => {
         text: newReview.text.trim() 
       };
       setAllReviews(prev => [reviewToAdd, ...prev]);
-      setNewReview({ name: "", text: "" });
+      setNewReview({ name: "", text: "", rating: 5 });
     }
   };
 
@@ -107,7 +107,7 @@ const Index = () => {
     <div className="min-h-screen bg-background flex flex-col relative">
       {/* Header with Verified Brand Badge */}
       <header className="absolute top-4 left-4 z-10">
-        <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
+        <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.5)]">
           <span className="text-xl font-bold text-foreground">Enzo</span>
           <img 
             src="/lovable-uploads/e6c23de5-527b-44f7-8742-0dcb1306da29.png" 
@@ -182,7 +182,7 @@ const Index = () => {
           <div className="mt-12 max-w-lg mx-auto">
             <h3 className="text-lg font-semibold text-foreground mb-6 text-center">Live Customer Reviews</h3>
             <div className="rounded-2xl p-4 h-80 overflow-hidden">
-              <div className="space-y-3 animate-[scroll-up_80s_linear_infinite]">
+              <div className="space-y-3 animate-[scroll-up_120s_linear_infinite]">
                 {[...allReviews, ...allReviews].map((review, index) => (
                   <div 
                     key={`inline-${review.name}-${index}`}
@@ -212,6 +212,23 @@ const Index = () => {
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
                   required
                 />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">Rating</label>
+                <div className="flex justify-center space-x-1 mb-4">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <button
+                      key={star}
+                      type="button"
+                      onClick={() => setNewReview(prev => ({ ...prev, rating: star }))}
+                      className="text-2xl focus:outline-none transition-colors"
+                    >
+                      <span className={star <= newReview.rating ? "text-yellow-400" : "text-gray-300"}>
+                        ⭐
+                      </span>
+                    </button>
+                  ))}
+                </div>
               </div>
               <div>
                 <textarea
