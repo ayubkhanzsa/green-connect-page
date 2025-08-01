@@ -1,15 +1,114 @@
 import { Button } from "@/components/ui/button";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, CheckCircle } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Index = () => {
   const handleJoinGroup = () => {
     window.open("https://chat.whatsapp.com/BkbSqbYehbJ7LeHsze7Y0o?mode=ac_t", "_blank");
   };
 
+  // Reviews data
+  const reviews = [
+    { name: "Ali Raza", text: "Thanks Enzo! Received my UC in 2 mins! Trusted service 💯" },
+    { name: "Usman Khan", text: "Car mila just after payment, fast delivery bro 🔥" },
+    { name: "Ayesha Malik", text: "Smooth process, highly recommend Enzo!" },
+    { name: "Danish Mughal", text: "Amazing service, got my UC instantly!" },
+    { name: "Hina Shahid", text: "Fast and reliable, thank you Enzo 🙏" },
+    { name: "Bilal Aslam", text: "Trusted again, got my car fast!" },
+    { name: "Sana Rauf", text: "Wasn't expecting this fast delivery, amazing!" },
+    { name: "Hamza Tariq", text: "Best service for UC, highly recommended!" },
+    { name: "Maham Khan", text: "Super quick delivery, very satisfied 👍" },
+    { name: "Saad Ahmed", text: "Enzo delivers as promised, excellent!" },
+    { name: "Zoya Akbar", text: "Got my car skin immediately, love it!" },
+    { name: "Zain Malik", text: "Professional service, will use again!" },
+    { name: "Nimra Iftikhar", text: "Fast UC delivery, totally worth it!" },
+    { name: "Hassan Javed", text: "Smooth transaction, very impressed!" },
+    { name: "Saba Qureshi", text: "Quick and easy process, thank you!" },
+    { name: "Waleed Shah", text: "Got my UC within minutes, amazing!" },
+    { name: "Iqra Javed", text: "Reliable service, highly recommend!" },
+    { name: "Fahad Rehman", text: "Fast delivery as always, great work!" },
+    { name: "Mehwish Farooq", text: "Trusted service, got my car fast!" },
+    { name: "Adeel Noman", text: "Excellent service, very professional!" },
+    { name: "Kiran Bashir", text: "Quick UC delivery, very satisfied!" },
+    { name: "Shahzaib Akhtar", text: "Trusted again, got my car fast!" },
+    { name: "Anum Tariq", text: "Amazing speed, highly recommend!" },
+    { name: "Haris Anwar", text: "Best UC service, super fast!" },
+    { name: "Fatima Noor", text: "Quick and reliable, thank you Enzo!" },
+    { name: "Taimoor Abbasi", text: "Got my car immediately, excellent!" },
+    { name: "Laiba Hassan", text: "Fast delivery, very professional service!" },
+    { name: "Imran Qureshi", text: "Smooth process, highly satisfied!" },
+    { name: "Rabia Imran", text: "Quick UC delivery, amazing service!" },
+    { name: "Noman Sheikh", text: "Reliable and fast, will use again!" },
+    { name: "Komal Rehman", text: "Got my car skin quickly, love it!" },
+    { name: "Adnan Siddiqui", text: "Professional service, highly recommend!" },
+    { name: "Jawad Mirza", text: "Fast UC delivery, very impressed!" },
+    { name: "Omer Farooq", text: "Quick and easy, excellent service!" },
+    { name: "Hammad Ali", text: "Trusted service, got my car fast!" },
+    { name: "Asad Bhatti", text: "Amazing delivery speed, thank you!" },
+    { name: "Kamran Bashir", text: "Reliable UC service, highly recommend!" },
+    { name: "Yousaf Raza", text: "Fast and professional, very satisfied!" },
+    { name: "Rayan Khalid", text: "Quick delivery, excellent work!" },
+    { name: "Umar Saeed", text: "Got my UC instantly, amazing!" },
+    { name: "Shayan Haider", text: "Smooth transaction, will use again!" },
+    { name: "Zeeshan Tariq", text: "Fast car delivery, highly recommend!" },
+    { name: "Atif Iqbal", text: "Professional service, very impressed!" },
+    { name: "Nabeel Shah", text: "Quick UC delivery, excellent!" },
+    { name: "Ahsan Saleem", text: "Reliable and fast, thank you Enzo!" },
+    { name: "Salman Gul", text: "Got my car quickly, amazing service!" },
+    { name: "Hashir Nawaz", text: "Fast delivery, highly satisfied!" },
+    { name: "Junaid Mehmood", text: "Smooth process, excellent work!" },
+    { name: "Fawad Chaudhry", text: "Quick and reliable, highly recommend!" },
+    { name: "Taha Aziz", text: "Fast UC delivery, very professional!" }
+  ];
+
+  const [displayedReviews, setDisplayedReviews] = useState(reviews.slice(0, 8));
+  const [currentIndex, setCurrentIndex] = useState(8);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDisplayedReviews(prev => {
+        const newReviews = [...prev.slice(1)];
+        const nextReview = reviews[currentIndex % reviews.length];
+        newReviews.push(nextReview);
+        return newReviews;
+      });
+      setCurrentIndex(prev => (prev + 1) % reviews.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex, reviews]);
+
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col relative">
+      {/* Header with Verified Brand Badge */}
+      <header className="absolute top-4 left-4 z-10">
+        <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
+          <span className="text-xl font-bold text-foreground">Enzo</span>
+          <CheckCircle className="w-5 h-5 text-blue-500" fill="currentColor" />
+        </div>
+      </header>
+
+      {/* Live Reviews Sidebar */}
+      <div className="fixed right-4 top-20 bottom-20 w-80 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 p-4 z-10 overflow-hidden hidden lg:block">
+        <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Live Reviews</h3>
+        <div className="space-y-3 h-full overflow-hidden">
+          {displayedReviews.map((review, index) => (
+            <div 
+              key={`${review.name}-${index}`}
+              className="bg-gradient-to-r from-green-50 to-green-100 p-3 rounded-lg border border-green-200 animate-fade-in"
+            >
+              <div className="flex text-yellow-400 mb-1">
+                ⭐⭐⭐⭐✨
+              </div>
+              <p className="text-sm text-gray-700 mb-2">"{review.text}"</p>
+              <p className="text-xs font-medium text-gray-600">— {review.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Main Content */}
-      <main className="flex-1 flex items-center justify-center px-4 py-8">
+      <main className="flex-1 flex items-center justify-center px-4 py-8 lg:pr-96">
         <div className="max-w-2xl mx-auto text-center space-y-8">
           {/* Custom Messaging Icon */}
           <div className="flex flex-col items-center mb-8">
