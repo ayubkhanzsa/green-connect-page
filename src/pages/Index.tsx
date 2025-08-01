@@ -229,7 +229,7 @@ const Index = () => {
                       key={star}
                       type="button"
                       onClick={() => setNewReview(prev => ({ ...prev, rating: star }))}
-                      className="text-2xl focus:outline-none transition-colors"
+                      className="text-3xl focus:outline-none transition-all duration-200 hover:scale-110 cursor-pointer"
                     >
                       <span className={star <= newReview.rating ? "text-yellow-400" : "text-gray-300"}>
                         ⭐
@@ -237,6 +237,9 @@ const Index = () => {
                     </button>
                   ))}
                 </div>
+                <p className="text-center text-sm text-gray-600 mb-4">
+                  Selected: {newReview.rating} star{newReview.rating !== 1 ? 's' : ''}
+                </p>
               </div>
               <div>
                 <textarea
