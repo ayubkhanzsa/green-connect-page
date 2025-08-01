@@ -63,20 +63,45 @@ const Index = () => {
 
   const [displayedReviews, setDisplayedReviews] = useState(reviews.slice(0, 8));
   const [currentIndex, setCurrentIndex] = useState(8);
+  const [allReviews, setAllReviews] = useState(reviews);
+  const [newReview, setNewReview] = useState({ name: "", text: "" });
+
+  // Content filter function
+  const filterContent = (text) => {
+    const bannedWords = ['fake', 'scammer', 'scam', 'jot', 'jota'];
+    return bannedWords.some(word => text.toLowerCase().includes(word));
+  };
+
+  // Handle review submission
+  const handleReviewSubmit = (e) => {
+    e.preventDefault();
+    if (newReview.name.trim() && newReview.text.trim()) {
+      if (filterContent(newReview.text) || filterContent(newReview.name)) {
+        alert("Review contains inappropriate content and cannot be posted.");
+        return;
+      }
+      const reviewToAdd = { 
+        name: newReview.name.trim(), 
+        text: newReview.text.trim() 
+      };
+      setAllReviews(prev => [reviewToAdd, ...prev]);
+      setNewReview({ name: "", text: "" });
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
       setDisplayedReviews(prev => {
         const newReviews = [...prev.slice(1)];
-        const nextReview = reviews[currentIndex % reviews.length];
+        const nextReview = allReviews[currentIndex % allReviews.length];
         newReviews.push(nextReview);
         return newReviews;
       });
-      setCurrentIndex(prev => (prev + 1) % reviews.length);
+      setCurrentIndex(prev => (prev + 1) % allReviews.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [currentIndex, reviews]);
+  }, [currentIndex, allReviews]);
 
   return (
     <div className="min-h-screen bg-background flex flex-col relative">
@@ -157,8 +182,8 @@ const Index = () => {
           <div className="mt-12 max-w-lg mx-auto">
             <h3 className="text-lg font-semibold text-foreground mb-6 text-center">Live Customer Reviews</h3>
             <div className="rounded-2xl p-4 h-80 overflow-hidden">
-              <div className="space-y-3 animate-[scroll-up_40s_linear_infinite]">
-                {[...reviews, ...reviews].map((review, index) => (
+              <div className="space-y-3 animate-[scroll-up_80s_linear_infinite]">
+                {[...allReviews, ...allReviews].map((review, index) => (
                   <div 
                     key={`inline-${review.name}-${index}`}
                     className="bg-gradient-to-r from-green-50 to-green-100 p-3 rounded-lg border border-green-200"
@@ -172,6 +197,38 @@ const Index = () => {
                 ))}
               </div>
             </div>
+          </div>
+
+          {/* Write Review Section */}
+          <div className="mt-8 max-w-lg mx-auto">
+            <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Write Your Review</h3>
+            <form onSubmit={handleReviewSubmit} className="space-y-4">
+              <div>
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  value={newReview.name}
+                  onChange={(e) => setNewReview(prev => ({ ...prev, name: e.target.value }))}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+                  required
+                />
+              </div>
+              <div>
+                <textarea
+                  placeholder="Write your review..."
+                  value={newReview.text}
+                  onChange={(e) => setNewReview(prev => ({ ...prev, text: e.target.value }))}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 h-20"
+                  required
+                />
+              </div>
+              <Button
+                type="submit"
+                className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
+              >
+                Submit Review
+              </Button>
+            </form>
           </div>
         </div>
       </main>
