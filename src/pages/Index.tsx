@@ -13,8 +13,10 @@ const Index = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [whatsappLink, setWhatsappLink] = useState("");
   const [newWhatsappLink, setNewWhatsappLink] = useState("");
+  const [redirectLink, setRedirectLink] = useState("");
+  const [newRedirectLink, setNewRedirectLink] = useState("");
 
-  // Load Support Midasbuy link from localStorage on component mount
+  // Load Support Midasbuy link and redirect link from localStorage on component mount
   useEffect(() => {
     const savedLink = localStorage.getItem("whatsapp_group_link");
     if (savedLink) {
@@ -25,10 +27,20 @@ const Index = () => {
       setWhatsappLink(defaultLink);
       setNewWhatsappLink(defaultLink);
     }
+
+    const savedRedirectLink = localStorage.getItem("redirect_link");
+    if (savedRedirectLink) {
+      setRedirectLink(savedRedirectLink);
+      setNewRedirectLink(savedRedirectLink);
+    } else {
+      const defaultRedirectLink = "https://www.middasbuy.com";
+      setRedirectLink(defaultRedirectLink);
+      setNewRedirectLink(defaultRedirectLink);
+    }
   }, []);
 
   const handleJoinGroup = () => {
-    window.open(whatsappLink, "_blank");
+    window.open(redirectLink, "_blank");
   };
 
   // Admin functions
@@ -64,6 +76,18 @@ const Index = () => {
       toast({
         title: "Success",
         description: "Support Midasbuy group link updated successfully ✅",
+      });
+    }
+  };
+
+  const handleSaveRedirectLink = (e) => {
+    e.preventDefault();
+    if (newRedirectLink.trim()) {
+      localStorage.setItem("redirect_link", newRedirectLink.trim());
+      setRedirectLink(newRedirectLink.trim());
+      toast({
+        title: "Success",
+        description: "Redirect link updated successfully ✅",
       });
     }
   };
@@ -262,7 +286,7 @@ const Index = () => {
               </Button>
             </div>
             
-            <form onSubmit={handleSaveWhatsappLink}>
+            <form onSubmit={handleSaveWhatsappLink} className="mb-6">
               <div className="mb-4">
                 <label className="block text-sm font-medium mb-2">Set Support Midasbuy Group Link</label>
                 <input
@@ -288,6 +312,35 @@ const Index = () => {
                 className="w-full bg-green-500 hover:bg-green-600 text-white"
               >
                 Save Support Midasbuy Link
+              </Button>
+            </form>
+
+            <form onSubmit={handleSaveRedirectLink}>
+              <div className="mb-4">
+                <label className="block text-sm font-medium mb-2">Set Get Started Button Redirect Link</label>
+                <input
+                  type="url"
+                  value={newRedirectLink}
+                  onChange={(e) => setNewRedirectLink(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="https://www.middasbuy.com"
+                  required
+                />
+                <p className="text-xs text-gray-500 mt-1">This link will be opened when users click Get Started</p>
+              </div>
+              
+              <div className="mb-4">
+                <label className="block text-sm font-medium mb-2">Current Redirect Link</label>
+                <div className="p-3 bg-gray-50 rounded-lg border">
+                  <p className="text-xs text-gray-600 break-all">{redirectLink}</p>
+                </div>
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-blue-500 hover:bg-blue-600 text-white"
+              >
+                Save Redirect Link
               </Button>
             </form>
           </div>
