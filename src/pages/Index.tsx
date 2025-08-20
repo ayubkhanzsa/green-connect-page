@@ -176,11 +176,10 @@ const Index = () => {
       {/* Header with Verified Brand Badge and Admin Button */}
       <header className="absolute top-4 left-4 right-4 z-10 flex justify-between items-center">
         <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.5)]">
-          <span className="text-xl font-bold text-foreground">Enzo</span>
           <img 
-            src="/lovable-uploads/e6c23de5-527b-44f7-8742-0dcb1306da29.png" 
-            alt="Verified badge" 
-            className="w-5 h-5"
+            src="/lovable-uploads/541908e5-35d0-4fdc-94c7-5f5967e5819c.png" 
+            alt="Midasbuy logo" 
+            className="h-8"
           />
         </div>
         
@@ -317,14 +316,11 @@ const Index = () => {
             <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-r from-primary to-primary-glow rounded-full flex items-center justify-center shadow-lg mb-2">
               <MessageCircle className="w-10 h-10 md:w-12 md:h-12 text-primary-foreground" />
             </div>
-            <p className="text-xs text-muted-foreground">
-              Not affiliated with or endorsed by WhatsApp Inc.
-            </p>
           </div>
 
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-            Join Our Exclusive WhatsApp Group!
+            Join Now
           </h1>
 
           {/* Subheadline */}
@@ -338,13 +334,13 @@ const Index = () => {
               variant="whatsapp"
               size="lg"
               onClick={handleJoinGroup}
-              className="px-8 py-6 text-lg md:text-xl rounded-full transform hover:scale-105 transition-all duration-300 ease-in-out bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 border-0 font-semibold animate-[float_3s_ease-in-out_infinite]"
+              className="px-8 py-6 text-lg md:text-xl rounded-full transform hover:scale-105 transition-all duration-300 ease-in-out bg-gradient-to-r from-blue-800 to-blue-900 hover:from-blue-900 hover:to-blue-950 border-0 font-semibold animate-[float_3s_ease-in-out_infinite] text-white"
               style={{
                 boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)'
               }}
             >
               <MessageCircle className="w-5 h-5 mr-2 animate-pulse" />
-              Join WhatsApp Group
+              Get Started
             </Button>
             <p className="text-sm text-muted-foreground max-w-md mx-auto">
               By clicking, you agree to receive messages via WhatsApp. You can leave the group anytime.
