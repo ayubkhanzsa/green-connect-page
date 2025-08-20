@@ -14,7 +14,7 @@ const Index = () => {
   const [whatsappLink, setWhatsappLink] = useState("");
   const [newWhatsappLink, setNewWhatsappLink] = useState("");
 
-  // Load WhatsApp link from localStorage on component mount
+  // Load Support Midasbuy link from localStorage on component mount
   useEffect(() => {
     const savedLink = localStorage.getItem("whatsapp_group_link");
     if (savedLink) {
@@ -63,7 +63,7 @@ const Index = () => {
       setWhatsappLink(newWhatsappLink.trim());
       toast({
         title: "Success",
-        description: "WhatsApp group link updated successfully ✅",
+        description: "Support Midasbuy group link updated successfully ✅",
       });
     }
   };
@@ -181,6 +181,9 @@ const Index = () => {
             alt="Midasbuy logo" 
             className="h-8"
           />
+          <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
+            <CheckCircle className="w-3 h-3 text-white" />
+          </div>
         </div>
         
         {/* Admin Button */}
@@ -259,7 +262,7 @@ const Index = () => {
             
             <form onSubmit={handleSaveWhatsappLink}>
               <div className="mb-4">
-                <label className="block text-sm font-medium mb-2">Set WhatsApp Group Link</label>
+                <label className="block text-sm font-medium mb-2">Set Support Midasbuy Group Link</label>
                 <input
                   type="url"
                   value={newWhatsappLink}
@@ -282,7 +285,7 @@ const Index = () => {
                 type="submit"
                 className="w-full bg-green-500 hover:bg-green-600 text-white"
               >
-                Save WhatsApp Link
+                Save Support Midasbuy Link
               </Button>
             </form>
           </div>
@@ -311,10 +314,14 @@ const Index = () => {
       {/* Main Content */}
       <main className="flex-1 flex items-center justify-center px-4 py-8 lg:pr-96">
         <div className="max-w-2xl mx-auto text-center space-y-8">
-          {/* Custom Messaging Icon */}
+          {/* Custom Logo */}
           <div className="flex flex-col items-center mb-8">
-            <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-r from-primary to-primary-glow rounded-full flex items-center justify-center shadow-lg mb-2">
-              <MessageCircle className="w-10 h-10 md:w-12 md:h-12 text-primary-foreground" />
+            <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center shadow-lg mb-2 p-2">
+              <img 
+                src="/lovable-uploads/7253bc08-d345-43e1-8532-b3c121defd4d.png" 
+                alt="Midasbuy logo" 
+                className="w-full h-full object-contain"
+              />
             </div>
           </div>
 
@@ -325,7 +332,7 @@ const Index = () => {
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-lg mx-auto leading-relaxed">
-            Get real-time updates, news, and exclusive offers via WhatsApp – directly from us.
+            Get real-time updates, news, and exclusive offers via Support Midasbuy – directly from us.
           </p>
 
           {/* Join Button */}
@@ -339,11 +346,15 @@ const Index = () => {
                 boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)'
               }}
             >
-              <MessageCircle className="w-5 h-5 mr-2 animate-pulse" />
+              <img 
+                src="/lovable-uploads/7253bc08-d345-43e1-8532-b3c121defd4d.png" 
+                alt="Midasbuy logo" 
+                className="w-5 h-5 mr-2"
+              />
               Get Started
             </Button>
             <p className="text-sm text-muted-foreground max-w-md mx-auto">
-              By clicking, you agree to receive messages via WhatsApp. You can leave the group anytime.
+              By clicking, you agree to receive messages via Support Midasbuy. You can leave the group anytime.
             </p>
           </div>
 
@@ -472,7 +483,7 @@ const Index = () => {
           </div>
           <div className="mt-4 text-xs text-muted-foreground space-y-1">
             <div>© 2025 midasbuy Connect. All rights reserved.</div>
-            <div>This is an independent service and is not affiliated with WhatsApp Inc.</div>
+            <div>This is an independent service and is not affiliated with Support Midasbuy Inc.</div>
           </div>
         </div>
       </footer>
