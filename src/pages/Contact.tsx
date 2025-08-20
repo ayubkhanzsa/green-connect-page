@@ -31,7 +31,7 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
@@ -68,26 +68,6 @@ const Contact = () => {
                   onClick={() => window.open("tel:+447476966269", "_blank")}
                 >
                   +44 7476 966269
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  🇵🇰 Pakistan
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  For support in Pakistan
-                </p>
-                <Button 
-                  variant="outline" 
-                  className="w-full"
-                  onClick={() => window.open("tel:+923101040700", "_blank")}
-                >
-                  +92 310 1040700
                 </Button>
               </CardContent>
             </Card>

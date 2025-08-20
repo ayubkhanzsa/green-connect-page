@@ -175,25 +175,27 @@ const Index = () => {
     <div className="min-h-screen bg-background flex flex-col relative">
       {/* Header with Verified Brand Badge and Admin Button */}
       <header className="absolute top-4 left-4 right-4 z-10 flex justify-between items-center">
-        <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.5)]">
+        <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-2 md:px-4 py-2 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.5)]">
           <img 
             src="/lovable-uploads/541908e5-35d0-4fdc-94c7-5f5967e5819c.png" 
             alt="Midasbuy logo" 
-            className="h-8"
+            className="h-4 md:h-8"
           />
-          <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
-            <CheckCircle className="w-3 h-3 text-white" />
-          </div>
+          <img 
+            src="/lovable-uploads/6b70ec2e-51b2-4378-8736-51c0f8c54e4a.png" 
+            alt="Verified badge" 
+            className="w-3 h-3 md:w-5 md:h-5"
+          />
         </div>
         
         {/* Admin Button */}
         <Button
           onClick={handleAdminClick}
-          variant="outline"
+          variant="ghost"
           size="sm"
-          className="bg-white/90 backdrop-blur-sm shadow-[0_8px_30px_rgb(0,0,0,0.5)] hover:bg-white/95"
+          className="bg-transparent text-xs px-2 py-1 opacity-0 hover:opacity-100 transition-opacity duration-300"
         >
-          <Lock className="w-4 h-4 mr-1" />
+          <Lock className="w-3 h-3 mr-1" />
           Admin
         </Button>
       </header>
