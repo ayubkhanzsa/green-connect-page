@@ -484,8 +484,15 @@ const Index = () => {
             </a>
           </div>
           <div className="mt-4 text-xs text-muted-foreground space-y-1">
-            <div>© 2025 midasbuy Connect. All rights reserved.</div>
-            <div>This is an independent service and is not affiliated with Support Midasbuy Inc.</div>
+            <div className="flex items-center justify-center gap-2">
+              <img 
+                src="/lovable-uploads/midasbuy-info-logo.png" 
+                alt="Midasbuy info logo" 
+                className="w-4 h-4"
+              />
+              <span>Midasbuy info</span>
+            </div>
+            <div>© 2025 Midasbuy info. All rights reserved.</div>
           </div>
         </div>
       </footer>
