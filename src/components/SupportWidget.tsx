@@ -124,12 +124,12 @@ const SupportWidget = () => {
       {/* Support button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 relative"
+        className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 relative w-14 h-14 flex items-center justify-center"
       >
         <img 
           src="/lovable-uploads/308ad7e9-46bf-4db5-af45-ab8964cbb093.png" 
           alt="Support" 
-          className="w-6 h-6 invert"
+          className="w-8 h-8 invert object-contain"
         />
         {/* Online indicator */}
         <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
