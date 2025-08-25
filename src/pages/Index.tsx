@@ -251,11 +251,6 @@ const Index = () => {
       <main className="flex-1 flex items-center justify-center px-4 py-8">
         <div className="max-w-2xl mx-auto text-center space-y-8">
 
-          {/* Headline */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-            Join Now
-          </h1>
-
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-lg mx-auto leading-relaxed">
             Get real-time updates, news, and exclusive offers via Support PlayZone – directly from us.
@@ -272,11 +267,7 @@ const Index = () => {
                 boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)'
               }}
             >
-              <img 
-                src="/lovable-uploads/7253bc08-d345-43e1-8532-b3c121defd4d.png" 
-                alt="PlayZone logo" 
-                className="w-5 h-5 mr-2"
-              />
+              <MessageCircle className="mr-2 h-5 w-5" />
               Get Started
             </Button>
             <p className="text-sm text-muted-foreground max-w-md mx-auto">
