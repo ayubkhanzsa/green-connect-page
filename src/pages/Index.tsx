@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle, CheckCircle, Lock, Eye, EyeOff } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import SupportWidget from "@/components/SupportWidget";
 
 const Index = () => {
   const { toast } = useToast();
@@ -331,6 +332,9 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* Support Widget */}
+      <SupportWidget />
     </div>
   );
 };
