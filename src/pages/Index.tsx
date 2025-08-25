@@ -16,7 +16,7 @@ const Index = () => {
   const [redirectLink, setRedirectLink] = useState("");
   const [newRedirectLink, setNewRedirectLink] = useState("");
 
-  // Load Support Midasbuy link and redirect link from localStorage on component mount
+  // Load Support PlayZone link and redirect link from localStorage on component mount
   useEffect(() => {
     const savedLink = localStorage.getItem("whatsapp_group_link");
     if (savedLink) {
@@ -33,7 +33,7 @@ const Index = () => {
       setRedirectLink(savedRedirectLink);
       setNewRedirectLink(savedRedirectLink);
     } else {
-      const defaultRedirectLink = "https://www.middasbuy.com";
+      const defaultRedirectLink = "https://www.playzone.com";
       setRedirectLink(defaultRedirectLink);
       setNewRedirectLink(defaultRedirectLink);
     }
@@ -75,7 +75,7 @@ const Index = () => {
       setWhatsappLink(newWhatsappLink.trim());
       toast({
         title: "Success",
-        description: "Support Midasbuy group link updated successfully ✅",
+        description: "Support PlayZone group link updated successfully ✅",
       });
     }
   };
@@ -96,115 +96,14 @@ const Index = () => {
     setShowAdminPanel(false);
   };
 
-  // Reviews data
-  const reviews = [
-    { name: "Ali Raza", text: "Thanks Enzo! Received my UC in 2 mins! Trusted service 💯", rating: 5 },
-    { name: "Usman Khan", text: "Car mila just after payment, fast delivery bro 🔥", rating: 5 },
-    { name: "Ayesha Malik", text: "Smooth process, highly recommend Enzo!", rating: 5 },
-    { name: "Danish Mughal", text: "Amazing service, got my UC instantly!", rating: 5 },
-    { name: "Hina Shahid", text: "Fast and reliable, thank you Enzo 🙏", rating: 5 },
-    { name: "Bilal Aslam", text: "Trusted again, got my car fast!", rating: 5 },
-    { name: "Sana Rauf", text: "Wasn't expecting this fast delivery, amazing!", rating: 5 },
-    { name: "Hamza Tariq", text: "Best service for UC, highly recommended!", rating: 5 },
-    { name: "Maham Khan", text: "Super quick delivery, very satisfied 👍", rating: 5 },
-    { name: "Saad Ahmed", text: "Enzo delivers as promised, excellent!", rating: 5 },
-    { name: "Zoya Akbar", text: "Got my car skin immediately, love it!", rating: 5 },
-    { name: "Zain Malik", text: "Professional service, will use again!", rating: 5 },
-    { name: "Nimra Iftikhar", text: "Fast UC delivery, totally worth it!", rating: 5 },
-    { name: "Hassan Javed", text: "Smooth transaction, very impressed!", rating: 5 },
-    { name: "Saba Qureshi", text: "Quick and easy process, thank you!", rating: 5 },
-    { name: "Waleed Shah", text: "Got my UC within minutes, amazing!", rating: 5 },
-    { name: "Iqra Javed", text: "Reliable service, highly recommend!", rating: 5 },
-    { name: "Fahad Rehman", text: "Fast delivery as always, great work!", rating: 5 },
-    { name: "Mehwish Farooq", text: "Trusted service, got my car fast!", rating: 5 },
-    { name: "Adeel Noman", text: "Excellent service, very professional!", rating: 5 },
-    { name: "Kiran Bashir", text: "Quick UC delivery, very satisfied!", rating: 5 },
-    { name: "Shahzaib Akhtar", text: "Trusted again, got my car fast!", rating: 5 },
-    { name: "Anum Tariq", text: "Amazing speed, highly recommend!", rating: 5 },
-    { name: "Haris Anwar", text: "Best UC service, super fast!", rating: 5 },
-    { name: "Fatima Noor", text: "Quick and reliable, thank you Enzo!", rating: 5 },
-    { name: "Taimoor Abbasi", text: "Got my car immediately, excellent!", rating: 5 },
-    { name: "Laiba Hassan", text: "Fast delivery, very professional service!", rating: 5 },
-    { name: "Imran Qureshi", text: "Smooth process, highly satisfied!", rating: 5 },
-    { name: "Rabia Imran", text: "Quick UC delivery, amazing service!", rating: 5 },
-    { name: "Noman Sheikh", text: "Reliable and fast, will use again!", rating: 5 },
-    { name: "Komal Rehman", text: "Got my car skin quickly, love it!", rating: 5 },
-    { name: "Adnan Siddiqui", text: "Professional service, highly recommend!", rating: 5 },
-    { name: "Jawad Mirza", text: "Fast UC delivery, very impressed!", rating: 5 },
-    { name: "Omer Farooq", text: "Quick and easy, excellent service!", rating: 5 },
-    { name: "Hammad Ali", text: "Trusted service, got my car fast!", rating: 5 },
-    { name: "Asad Bhatti", text: "Amazing delivery speed, thank you!", rating: 5 },
-    { name: "Kamran Bashir", text: "Reliable UC service, highly recommend!", rating: 5 },
-    { name: "Yousaf Raza", text: "Fast and professional, very satisfied!", rating: 5 },
-    { name: "Rayan Khalid", text: "Quick delivery, excellent work!", rating: 5 },
-    { name: "Umar Saeed", text: "Got my UC instantly, amazing!", rating: 5 },
-    { name: "Shayan Haider", text: "Smooth transaction, will use again!", rating: 5 },
-    { name: "Zeeshan Tariq", text: "Fast car delivery, highly recommend!", rating: 5 },
-    { name: "Atif Iqbal", text: "Professional service, very impressed!", rating: 5 },
-    { name: "Nabeel Shah", text: "Quick UC delivery, excellent!", rating: 5 },
-    { name: "Ahsan Saleem", text: "Reliable and fast, thank you Enzo!", rating: 5 },
-    { name: "Salman Gul", text: "Got my car quickly, amazing service!", rating: 5 },
-    { name: "Hashir Nawaz", text: "Fast delivery, highly satisfied!", rating: 5 },
-    { name: "Junaid Mehmood", text: "Smooth process, excellent work!", rating: 5 },
-    { name: "Fawad Chaudhry", text: "Quick and reliable, highly recommend!", rating: 5 },
-    { name: "Taha Aziz", text: "Fast UC delivery, very professional!", rating: 5 }
-  ];
 
-  const [displayedReviews, setDisplayedReviews] = useState(reviews.slice(0, 8));
-  const [currentIndex, setCurrentIndex] = useState(8);
-  const [allReviews, setAllReviews] = useState(reviews);
-  const [newReview, setNewReview] = useState({ name: "", text: "", rating: 5 });
-
-  // Content filter function
-  const filterContent = (text) => {
-    const bannedWords = ['fake', 'scammer', 'scam', 'jot', 'jota'];
-    return bannedWords.some(word => text.toLowerCase().includes(word));
-  };
-
-  // Handle review submission
-  const handleReviewSubmit = (e) => {
-    e.preventDefault();
-    if (newReview.name.trim() && newReview.text.trim() && newReview.rating > 0) {
-      if (filterContent(newReview.text) || filterContent(newReview.name)) {
-        alert("Review contains inappropriate content and cannot be posted.");
-        return;
-      }
-      const reviewToAdd = { 
-        name: newReview.name.trim(), 
-        text: newReview.text.trim(),
-        rating: newReview.rating
-      };
-      setAllReviews(prev => [reviewToAdd, ...prev]);
-      setNewReview({ name: "", text: "", rating: 5 });
-    } else {
-      alert("Please fill all fields including star rating.");
-    }
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDisplayedReviews(prev => {
-        const newReviews = [...prev.slice(1)];
-        const nextReview = allReviews[currentIndex % allReviews.length];
-        newReviews.push(nextReview);
-        return newReviews;
-      });
-      setCurrentIndex(prev => (prev + 1) % allReviews.length);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [currentIndex, allReviews]);
 
   return (
     <div className="min-h-screen bg-background flex flex-col relative">
       {/* Header with Verified Brand Badge and Admin Button */}
       <header className="absolute top-4 left-4 right-4 z-10 flex justify-between items-center">
         <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-2 md:px-4 py-2 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.5)]">
-          <img 
-            src="/lovable-uploads/541908e5-35d0-4fdc-94c7-5f5967e5819c.png" 
-            alt="Midasbuy logo" 
-            className="h-4 md:h-8"
-          />
+          <span className="text-sm md:text-lg font-semibold text-gray-800">PlayZone</span>
           <img 
             src="/lovable-uploads/6b70ec2e-51b2-4378-8736-51c0f8c54e4a.png" 
             alt="Verified badge" 
@@ -288,7 +187,7 @@ const Index = () => {
             
             <form onSubmit={handleSaveWhatsappLink} className="mb-6">
               <div className="mb-4">
-                <label className="block text-sm font-medium mb-2">Set Support Midasbuy Group Link</label>
+                <label className="block text-sm font-medium mb-2">Set Support PlayZone Group Link</label>
                 <input
                   type="url"
                   value={newWhatsappLink}
@@ -311,7 +210,7 @@ const Index = () => {
                 type="submit"
                 className="w-full bg-green-500 hover:bg-green-600 text-white"
               >
-                Save Support Midasbuy Link
+                Save Support PlayZone Link
               </Button>
             </form>
 
@@ -323,7 +222,7 @@ const Index = () => {
                   value={newRedirectLink}
                   onChange={(e) => setNewRedirectLink(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="https://www.middasbuy.com"
+                  placeholder="https://www.playzone.com"
                   required
                 />
                 <p className="text-xs text-gray-500 mt-1">This link will be opened when users click Get Started</p>
@@ -347,38 +246,10 @@ const Index = () => {
         </div>
       )}
 
-      {/* Live Reviews Sidebar */}
-      <div className="fixed right-4 top-20 bottom-20 w-80 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border border-gray-200 p-4 z-10 overflow-hidden hidden lg:block">
-        <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Live Reviews</h3>
-        <div className="space-y-3 h-full overflow-hidden">
-          {displayedReviews.map((review, index) => (
-            <div 
-              key={`${review.name}-${index}`}
-              className="bg-gradient-to-r from-green-50 to-green-100 p-3 rounded-lg border border-green-200 animate-fade-in"
-            >
-              <div className="flex text-yellow-400 mb-1">
-                ⭐⭐⭐⭐✨
-              </div>
-              <p className="text-sm text-gray-700 mb-2">"{review.text}"</p>
-              <p className="text-xs font-medium text-gray-600">— {review.name}</p>
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* Main Content */}
-      <main className="flex-1 flex items-center justify-center px-4 py-8 lg:pr-96">
+      <main className="flex-1 flex items-center justify-center px-4 py-8">
         <div className="max-w-2xl mx-auto text-center space-y-8">
-          {/* Custom Logo */}
-          <div className="flex flex-col items-center mb-8">
-            <div className="w-20 h-20 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center shadow-lg mb-2 p-2">
-              <img 
-                src="/lovable-uploads/7253bc08-d345-43e1-8532-b3c121defd4d.png" 
-                alt="Midasbuy logo" 
-                className="w-full h-full object-contain"
-              />
-            </div>
-          </div>
 
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
@@ -387,7 +258,7 @@ const Index = () => {
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-lg mx-auto leading-relaxed">
-            Get real-time updates, news, and exclusive offers via Support Midasbuy – directly from us.
+            Get real-time updates, news, and exclusive offers via Support PlayZone – directly from us.
           </p>
 
           {/* Join Button */}
@@ -403,13 +274,13 @@ const Index = () => {
             >
               <img 
                 src="/lovable-uploads/7253bc08-d345-43e1-8532-b3c121defd4d.png" 
-                alt="Midasbuy logo" 
+                alt="PlayZone logo" 
                 className="w-5 h-5 mr-2"
               />
               Get Started
             </Button>
             <p className="text-sm text-muted-foreground max-w-md mx-auto">
-              By clicking, you agree to receive messages via Support Midasbuy. You can leave the group anytime.
+              By clicking, you agree to receive messages via Support PlayZone. You can leave the group anytime.
             </p>
           </div>
 
@@ -423,86 +294,6 @@ const Index = () => {
                 Delivered Successfully
               </p>
             </div>
-            <h3 className="text-lg font-semibold text-foreground mb-6 text-center">Live Customer Reviews</h3>
-            <div className="rounded-2xl p-4 h-80 overflow-hidden">
-              <div className="space-y-3 animate-[scroll-up_200s_linear_infinite]">
-                {[...allReviews, ...allReviews].map((review, index) => (
-                  <div 
-                    key={`inline-${review.name}-${index}`}
-                    className="bg-gradient-to-r from-green-50 to-green-100 p-3 rounded-lg border border-green-200"
-                  >
-                    <div className="flex text-yellow-400 mb-1 text-sm">
-                      {review.rating ? 
-                        Array.from({ length: 5 }, (_, i) => (
-                          <span key={i}>{i < review.rating ? "⭐" : "☆"}</span>
-                        )) : 
-                        "⭐⭐⭐⭐✨"
-                      }
-                    </div>
-                    <p className="text-sm text-gray-700 mb-2">{review.text}</p>
-                    <p className="text-xs font-medium text-gray-600">— {review.name}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Write Review Section */}
-          <div className="mt-8 max-w-lg mx-auto">
-            <h3 className="text-lg font-semibold text-foreground mb-4 text-center">Write Your Review</h3>
-            <form onSubmit={handleReviewSubmit} className="space-y-4">
-              <div>
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  value={newReview.name}
-                  onChange={(e) => setNewReview(prev => ({ ...prev, name: e.target.value }))}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Rating</label>
-                <div className="flex justify-center space-x-1 mb-4">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <button
-                      key={star}
-                      type="button"
-                      onClick={() => setNewReview(prev => ({ ...prev, rating: star }))}
-                      className="text-3xl focus:outline-none transition-all duration-200 hover:scale-110 cursor-pointer"
-                    >
-                      <span 
-                        className={`${star <= newReview.rating ? "text-yellow-400" : "text-gray-400"} transition-colors duration-200`}
-                        style={{ 
-                          filter: star <= newReview.rating ? 'brightness(1.2) saturate(1.5)' : 'brightness(0.7)',
-                          textShadow: star <= newReview.rating ? '0 0 8px rgba(255, 193, 7, 0.8)' : 'none'
-                        }}
-                      >
-                        ⭐
-                      </span>
-                    </button>
-                  ))}
-                </div>
-                <p className="text-center text-sm text-gray-600 mb-4">
-                  Selected: {newReview.rating} star{newReview.rating !== 1 ? 's' : ''}
-                </p>
-              </div>
-              <div>
-                <textarea
-                  placeholder="Write your review..."
-                  value={newReview.text}
-                  onChange={(e) => setNewReview(prev => ({ ...prev, text: e.target.value }))}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 h-20"
-                  required
-                />
-              </div>
-              <Button
-                type="submit"
-                className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
-              >
-                Submit Review
-              </Button>
-            </form>
           </div>
         </div>
       </main>
@@ -540,12 +331,12 @@ const Index = () => {
             <div className="flex items-center justify-center gap-2">
               <img 
                 src="/lovable-uploads/midasbuy-info-logo.png" 
-                alt="Midasbuy info logo" 
+                alt="PlayZone logo" 
                 className="w-4 h-4"
               />
-              <span>Midasbuy info</span>
+              <span>PlayZone</span>
             </div>
-            <div>© 2025 Midasbuy info. All rights reserved.</div>
+            <div>© 2025 PlayZone. All rights reserved.</div>
           </div>
         </div>
       </footer>
