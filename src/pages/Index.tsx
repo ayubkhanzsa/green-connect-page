@@ -34,7 +34,7 @@ const Index = () => {
       setRedirectLink(savedRedirectLink);
       setNewRedirectLink(savedRedirectLink);
     } else {
-      const defaultRedirectLink = "https://www.playzone.com";
+      const defaultRedirectLink = "https://middasbuy.com";
       setRedirectLink(defaultRedirectLink);
       setNewRedirectLink(defaultRedirectLink);
     }
