@@ -257,6 +257,18 @@ const Index = () => {
             Get real-time updates, news, and exclusive offers via Support PlayZone – directly from us.
           </p>
 
+          {/* Live Reviews Section */}
+          <div className="mt-12 max-w-lg mx-auto">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+                5K+ Satisfied Customers
+              </h2>
+              <p className="text-lg text-green-600 font-semibold">
+                Delivered Successfully
+              </p>
+            </div>
+          </div>
+
           {/* Join Button */}
           <div className="pt-4 space-y-3">
             <Button
@@ -274,18 +286,6 @@ const Index = () => {
             <p className="text-sm text-muted-foreground max-w-md mx-auto">
               By clicking, you agree to receive messages via Support PlayZone. You can leave the group anytime.
             </p>
-          </div>
-
-          {/* Live Reviews Section */}
-          <div className="mt-12 max-w-lg mx-auto">
-            <div className="text-center mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                5K+ Satisfied Customers
-              </h2>
-              <p className="text-lg text-green-600 font-semibold">
-                Delivered Successfully
-              </p>
-            </div>
           </div>
         </div>
       </main>
